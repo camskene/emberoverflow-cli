@@ -1,3 +1,38 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    {{#link-to "index" classNames="navbar-brand"}}
+      Emberoverflow
+    {{/link-to}}
+  </div>
+
+  <ul class="nav navbar-nav">
+    {{#if currentUser.isSignedIn}}
+      <li>
+        {{#link-to "ask-question"}}
+          Ask Question
+        {{/link-to}}
+      </li>
+    {{/if}}
+    <li>
+      {{#link-to "about"}}
+        About site
+      {{/link-to}}
+    </li>
+  </ul>
+
+  <ul class="nav navbar-nav">
+    {{#if currentUser.isSignedIn}}
+      <li>
+        <a href="#" {{action "signOut"}}>
+          Welcome, {{currentUser.user.fullname}} — Sign out
+        </a>
+      </li>
+    {{else}}
+      <li>
+        {{#link-to "sign-in"}}Sign in{{/link-to}}
+      </li>
+    {{/if}}
+  </ul>
+</nav>
 
 {{outlet}}

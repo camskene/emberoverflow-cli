@@ -5,5 +5,8 @@
 
     Setting `disableAnalytics` to true will prevent any data from being sent.
   */
-  "disableAnalytics": false
+  "disableAnalytics": false,
+  /** port numbers were changes so other apps can run on the default ports **/
+  "port": 4300,
+  "live-reload-port": 3600
 }

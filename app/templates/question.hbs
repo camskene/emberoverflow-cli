@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-8">
+    <h2>{{title}}</h2>
+
+    {{#if isEditing}}
+      <form {{action 'submitEdits' on='submit'}}>
+        <div class="form-group">
+          <label for="title">Question title</label>
+          {{textarea
+            id='question'
+            value=question
+            classNames='form-control'
+            placeholder='Describe your problem in as much detail as possible'}}
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          Update question
+        </button>
+      </form>
+    {{else}}
+      <p id="question">
+        {{question}}
+      </p>
+      <p>
+        Asked by {{author.fullname}}
+      </p>
+
+      {{#if canEditQuestion}}
+        <p><a href {{action 'toggleEditQuestion'}}>Edit question</a></p>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>
+
+<hr>
+
+{{render 'answers' answers}}
+
+<hr>
+
+{{view 'answer-form'}}
